@@ -3,30 +3,35 @@ let context = canvas.getContext("2d")
 let box = 32
 let snake = []
 snake[0] = {
-  x: 8 * box,
-  y: 8 * box
+  x: 5 * box,
+  y: 5 * box
 }
 let direction = 'right'
 let food = {
   x: Math.floor(Math.random() * 15 + 1) * box,
   y: Math.floor(Math.random() * 15 + 1) * box
 }
+let ramenImg = new Image()
+let narutoImg = new Image()
+let width = 50;
+let height = 50;
+ramenImg.src="img/ramen.png"
+narutoImg.src="img/naruto.png"
 
 function criarBG(){
   context.fillStyle = "lightgreen";
   context.fillRect(0, 0, 16 * box, 16 * box);
 }
 
+
 function criarCobrinha(){
   for(i=0; i<snake.length; i++){
-    context.fillStyle = "green"
-    context.fillRect(snake[i].x, snake[i].y, box, box);
+    context.drawImage(narutoImg, snake[i].x, snake[i].y, width, height)
   }
 }
 
-function drawFood(){
-  context.fillStyle = 'red'
-  context.fillRect(food.x, food.y, box, box);
+ function drawFood(){
+  context.drawImage(ramenImg, food.x, food.y, width, height);
 }
 
 document.addEventListener('keydown', update)
@@ -69,8 +74,9 @@ function iniciarJogo(){
     food.y = Math.floor(Math.random() * 15 + 1) * box;
   }
 
+  narutoImg.onload = function(){
 
-
+  }
   let newHead = {
     x: snakeX,
     y: snakeY
