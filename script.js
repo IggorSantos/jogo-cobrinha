@@ -74,9 +74,6 @@ function iniciarJogo(){
     food.y = Math.floor(Math.random() * 15 + 1) * box;
   }
 
-  narutoImg.onload = function(){
-
-  }
   let newHead = {
     x: snakeX,
     y: snakeY
